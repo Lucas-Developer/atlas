@@ -12,6 +12,7 @@ define([
 		lookup: function(options) {
             var success = options.success;
             var error = options.error;
+            var err = 0;
             var collection = this;
             options.success = $.getJSON(this.url, function(response) {
                 this.fresh_until = response.fresh_until;
@@ -33,23 +34,29 @@ define([
                 });
                 if (relays.length == 0) {
                     error(0);
-                    console.log('error');
+                    console.log('Empty result set was returned');
                     return false;
-                } else if (relays.length > 40) {
-                    error(1);
-                    return false;
+                } else if (relays.length > 50) {
+		    relays = relays.slice(0, 50);
+		    err = 4;
+		    console.log(options);
                 }
+                var lookedUpRelays = 0;
                 _.each(relays, function(relay) {
+                    var lookedUp = function() {
+                      lookedUpRelays++;
+                      if (lookedUpRelays == relays.length) {
+                        success(err);
+                      }
+                    }
                     relay.lookup({
                         success: function(){
-                            if (relays.length == response.relays.length + response.bridges.length) {
-                                collection[options.add ? 'add' : 'reset'](relays, options);
-                                success(collection, relays);
-                                return relays;
-                            }
+                            collection[options.add ? 'add' : 'reset'](relays, options);
+                            lookedUp();
                         },
                         error: function() {
-                            console.log("error in loading..");
+                            console.log("error in loading one relay..");
+                            lookedUp();
                             error(0);
                         }
                     });
