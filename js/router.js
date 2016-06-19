@@ -14,6 +14,7 @@ define([
        // Define the routes for the actions in Atlas
     	'details/:fingerprint': 'mainDetails',
     	'search/:query': 'doSearch',
+	'top10': 'showTop10',
     	'about': 'showAbout',
     	// Default
     	'*actions': 'defaultAction'
@@ -80,6 +81,29 @@ define([
                 }
             });
         }
+    },
+    showTop10: function(){
+        $("#home").removeClass("active");
+        $("#about").removeClass("active");
+
+        $("#loading").show();
+        $("#content").hide();
+
+        doSearchView.collection.url = "https://onionoo.torproject.org/summary?type=relay&order=-consensus_weight&limit=10&running=true";
+            doSearchView.collection.lookup({
+                success: function(relays){
+                    $("#content").show();
+                    doSearchView.relays = doSearchView.collection.models;
+                    doSearchView.render("");
+                    $("#loading").hide();
+                },
+
+                error: function(erno){
+                    $("#content").show();
+                    doSearchView.error(erno);
+                    $("#loading").hide();
+                }
+            });
     },
     // Display the Atlas about page
     showAbout: function(){
