@@ -71,6 +71,7 @@ define([
                     $("#content").show();
                     doSearchView.relays = doSearchView.collection.models;
                     doSearchView.render(query);
+		    $("#search-title").text(query);
                     $("#loading").hide();
                 },
 
@@ -95,6 +96,7 @@ define([
                     $("#content").show();
                     doSearchView.relays = doSearchView.collection.models;
                     doSearchView.render("");
+		    $("#search-title").text("Top 10 Relays by Consensus Weight");
                     $("#loading").hide();
                 },
 
