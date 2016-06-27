@@ -156,7 +156,8 @@ define([
 			var oTable = $('#torstatus_results').dataTable({
 				// Save the state of the tables
                 "sDom": "<'row'<'span6'l><'span6 hide'f>r>t<'row'<'span6'i><'span6'p>>",
-				"bStateSave": true
+				"bStateSave": false,
+				"aaSorting": []
 			});
             // Make the tooltips
             $(".flags").tooltip();
