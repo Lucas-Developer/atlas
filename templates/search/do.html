@@ -82,7 +82,7 @@
 			<td><span data-filter="<%= relay.get('bandwidth') %>"><%= relay.get('bandwidth_hr') %></td>
 			<td>
             <span data-hidden="<%= relay.get('last_restarted') %>" title="<%= relay.get('uptime_hrfull') %>" data-filter="<%= relay.get('uptime') %>" class="uptime">
-            <%= relay.get('uptime_hr') %>
+            <% if (relay.get('running') === false) { %><s><% } %><%= relay.get('uptime_hr') %><% if (relay.get('running') === false) { %></s><% } %>
             </span>
             </td>
 			<td>
