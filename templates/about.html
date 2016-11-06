@@ -29,6 +29,13 @@ country:us&rdquo;), with specific contact information (e.g.,
 <p>
 You are able to get a detailed view of how the relay is configured. What its exit policy is and all the data that you would normally find in the descriptor.
 </p>
+<h2>Bridges</h2>
+If you are searching for a bridge, you will need to search by the hashed
+fingerprint. This prevents leaking the fingerprint of the bridge when
+searching. You can find this in the <code>hashed-fingerprint</code> file in the
+Tor data directory. On Debian systems, this is in <code>/var/lib/tor</code>
+but may be in another location on your system. The location is specified as
+<code>DataDirectory</code> in your <code>torrc</code>.
 </div>
 
 <div class="span4">
