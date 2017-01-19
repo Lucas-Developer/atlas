@@ -243,6 +243,7 @@ define([
             $("#loading").hide();
             $(".flag .tooltip").hide();
             $(".tip").popover();
+            $(".flags").tooltip();
             $(".flag").hover(function(){
                 $(this).children(".tooltip").show();
 

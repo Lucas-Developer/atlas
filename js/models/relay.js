@@ -14,41 +14,46 @@ define([
             var model = this;
             _.each(flags, function(flag) {
                 if (flag == "Authority") {
-                    output.push([flag,"award_stroke_"+size[2]]);
+                    output.push([flag,"award_stroke_"+size[2], "This relay is a directory authority."]);
                 }
                 if (flag == "BadExit") {
                     model.set({badexit: true});
-                    output.push([flag, "denied_"+size[0]]);
+                    output.push([flag, "denied_"+size[0], "This relay is believed to be useless as an exit node (because its ISP censors it, because it is behind a restrictive proxy, or for some similar reason)."]);
                 }
                 if (flag == "Fast") {
-                    output.push([flag,"bolt_"+size[0]]);
+                    output.push([flag,"bolt_"+size[0], "This relay is suitable for high-bandwidth circuits."]);
                 }
                 if (flag == "Guard") {
-                    output.push([flag,"share_"+size[0]]);
+                    output.push([flag,"share_"+size[0], "This relay is suitable for use as an entry guard."]);
                 }
                 if (flag == "HSDir") {
-                    output.push([flag,"book_alt_"+size[0]]);
+                    output.push([flag,"book_alt_"+size[0], "This relay is considered a v2 hidden service directory."]);
                 }
                 if (flag == "Named") {
-                    output.push([flag,"info_"+size[2]]);
+                    output.push([flag,"info_"+size[2], "This relay's identity-nickname mapping is canonical, and this authority binds names."]);
                 }
+                /* added for future use, but we need an icon...
+                if (flag == "NoEdConsensus") {
+                    output.push([flag,"xxx_"+size[2], "An Ed25519 key in the relay's descriptor or microdesriptor does not reflect authority consensus."]);
+                }
+                */
                 if (flag == "Running") {
-                    output.push([flag,"fork_"+size[1]]);
+                    output.push([flag,"fork_"+size[1], "This relay is currently usable."]);
                 }
                 if (flag == "Stable") {
-                    output.push([flag,"cd_"+size[0]]);
+                    output.push([flag,"cd_"+size[0], "This relay is suitable for long-lived circuits."]);
                 }
                 if (flag == "V2Dir") {
-                    output.push([flag,"book_"+size[1]]);
+                    output.push([flag,"book_"+size[1], "This relay implements the v2 directory protocol or higher."]);
                 }
                 if (flag == "Valid") {
-                    output.push([flag,"check_alt_"+size[0]]);
+                    output.push([flag,"check_alt_"+size[0], "This relay has been 'validated'."]);
                 }
                 if (flag == "Unnamed") {
-                    output.push([flag,"question_mark_"+size[2]]);
+                    output.push([flag,"question_mark_"+size[2], "Another relay has bound the name used by this relay, and this authority binds names."]);
                 }
                 if (flag == "Exit") {
-                    output.push([flag,"cloud_download_"+size[0]]);
+                    output.push([flag,"cloud_download_"+size[0], "This relay is more useful for building general-purpose exit circuits than for relay circuits."]);
                 }
             });
             return output;

@@ -52,3 +52,17 @@
 a.alleged {
 	color: #FE9F30;
 }
+
+
+span.flags {
+    display:inline-block;
+    margin: 0 10px 5px 0;
+}
+span.flags img {
+    position:relative;
+    top:2px;
+}
+
+.tooltip * {
+    text-align:left;
+}
