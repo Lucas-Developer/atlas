@@ -107,7 +107,8 @@ define([
 
                 error: function(erno){
                     $("#content").show();
-                    doSearchView.error(erno);
+                    doSearchView.error = erno;
+                    doSearchView.renderError();
                     $("#loading").hide();
                 }
             });
