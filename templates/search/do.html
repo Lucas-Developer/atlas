@@ -87,13 +87,13 @@
             </td>
 			<td>
             <% if ( relay.get('country')) { %>
-            <img class="inline country" title="<%= relay.get('countryname') %>" src="img/cc/<%= relay.get('country') %>.png"/>
+            <img class="inline country" title="<%= relay.get('countryname') %>" alt="<%= relay.get('countryname') %>" src="img/cc/<%= relay.get('country') %>.png"/>
             <% } %>
             </td>
 			<td><%= relay.get('or_address') %></td>
 			<td>
             <% _.each(relay.get('flags'), function(flag) { %>
-            <img class="inline flags" rel="tooltip" src="img/flags/<%= flag[1] %>.png" title="<%= flag[0] %>"/>
+            <img class="inline flags" rel="tooltip" src="img/flags/<%= flag[1] %>.png" alt="<%= flag[0] %>" title="<%= flag[0] %>"/>
             <% }); %>
             </td>
 			<td><%= relay.get('or_port') %></td>
