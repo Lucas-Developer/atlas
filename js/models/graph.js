@@ -87,13 +87,10 @@ define([
         baseurl: 'https://onionoo.torproject.org',
         initialize: function() {
         this.set({
-            bw_days: {write: [], read: []},
-            bw_week: {write: [], read: []},
             bw_month: {write: [], read: []},
             bw_months: {write: [], read: []},
             bw_year: {write: [], read: []},
             bw_years: {write: [], read: []},
-            clients_days: {average: []},
             clients_week: {average: []},
             clients_month: {average: []},
             clients_months: {average: []},
@@ -111,8 +108,6 @@ define([
             var success = options.success;
             // Clear the model
             this.set({
-                bw_days: {write: [], read: []},
-                bw_week: {write: [], read: []},
                 bw_month: {write: [], read: []},
                 bw_months: {write: [], read: []},
                 bw_year: {write: [], read: []},
@@ -185,7 +180,6 @@ define([
             var success = options.success;
             // Clear the model
             this.set({
-                clients_days: {average: []},
                 clients_week: {average: []},
                 clients_month: {average: []},
                 clients_months: {average: []},

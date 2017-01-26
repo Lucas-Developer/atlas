@@ -192,7 +192,7 @@ define([
             this.graph.lookup_bw(this.model.fingerprint, {
                 success: function() {
                     graph.parse_bw_data(graph.data);
-                    graphs = ['bw_days', 'bw_week', 'bw_month',
+                    graphs = ['bw_month',
                             'bw_months', 'bw_year', 'bw_years'];
                     _.each(graphs, function(g) {
                         var data = [graph.get(g).write, graph.get(g).read];
