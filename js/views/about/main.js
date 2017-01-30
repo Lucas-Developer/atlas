@@ -5,7 +5,6 @@ define([
   'underscore',
   'backbone',
   'text!templates/about.html',
-  'popover',
   'collapse',
   'tooltip'
 ], function($, _, Backbone, aboutTemplate){
@@ -20,7 +19,7 @@ define([
             this.el.html(compiledTemplate);
             //$("#loading").hide();
             //$(".flag .tooltip").hide();
-            //$(".tip").popover();
+            //$(".tip").tooltip();
             $(".flag").hover(function(){
                 $(this).children(".tooltip").show();
 

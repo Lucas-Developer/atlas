@@ -14,23 +14,23 @@
     <div class="span4">
     <h3>Configuration</h3>
     <dl>
-      <dt><span class="tip" data-content="This is the nickname that the Tor relay operator chose." data-original-title="Nickname">Nickname</span></dt>
+      <dt><span class="tip" title="This is the nickname that the Tor relay operator chose." data-original-title="Nickname">Nickname</span></dt>
       <dd><%= _.escape(relay.get('nickname')) %></dd>
 
-      <dt><span class="tip" data-content="Addresses and ports where the relay listens for incoming connections from clients and other relays." data-original-title="Onion-routing addresses">OR Addresses</span></dt>
+      <dt><span class="tip" title="Addresses and ports where the relay listens for incoming connections from clients and other relays." data-original-title="Onion-routing addresses">OR Addresses</span></dt>
       <dd><%= relay.get('or_addresses') %></dd>
 
-      <dt><span class="tip" data-content="These are the contact details of the Tor relay operator" data-original-title="ContactInfo">Contact</span></dt>
+      <dt><span class="tip" title="These are the contact details of the Tor relay operator" data-original-title="ContactInfo">Contact</span></dt>
       <dd><%= _.escape(relay.get('contact')) %></dd>
 
-      <dt><span class="tip" data-content="Address and port where the relay listens for directory requests." data-original-title="Directory port">Dir Address</span></dt>
+      <dt><span class="tip" title="Address and port where the relay listens for directory requests." data-original-title="Directory port">Dir Address</span></dt>
       <dd><%= relay.get('dir_address') %></dd>
 
       <dt>
-      <span class="tip" data-content="Bandwidth that the relay is willing and able to provide in bytes per second." data-original-title="Advertised bandwidth">Advertised Bandwidth</span>
+      <span class="tip" title="Bandwidth that the relay is willing and able to provide in bytes per second." data-original-title="Advertised bandwidth">Advertised Bandwidth</span>
       </dt>
-      <dd><span class="tip" data-content="Bandwidth rate: <%= relay.get('bandwidthr') %><br>Bandwidth burst: <%= relay.get('bandwidthb') %><br>Observed bandwidth: <%= relay.get('obandwidth') %>" data-original-title="Bandwidth values"><%= relay.get('bandwidth_hr') %></span></dd>
-      <dt><span class="tip" data-content="Port summary of IPv4 exit connections that the relay is going to accept or reject." data-original-title="IPv4 exit policy summary">IPv4 Exit Policy Summary</span></dt>
+      <dd><span class="tip" title="Bandwidth rate: <%= relay.get('bandwidthr') %><br>Bandwidth burst: <%= relay.get('bandwidthb') %><br>Observed bandwidth: <%= relay.get('obandwidth') %>" data-original-title="Bandwidth values"><%= relay.get('bandwidth_hr') %></span></dd>
+      <dt><span class="tip" title="Port summary of IPv4 exit connections that the relay is going to accept or reject." data-original-title="IPv4 exit policy summary">IPv4 Exit Policy Summary</span></dt>
       <dd>
       <% if ('accept' in relay.get('exit_policy_summary')) { %>
         <pre class="pre-scrollable">accept<% _.each(relay.get('exit_policy_summary')['accept'],
@@ -39,7 +39,7 @@
         <pre class="pre-scrollable">reject<% _.each(relay.get('exit_policy_summary')['reject'],
           function(ports) { %><br>  <%= $.trim(ports) %><% });} %></pre>
       </dd>
-      <dt><span class="tip" data-content="Port summary of IPv6 exit connections that the relay is going to accept or reject." data-original-title="IPv6 exit policy summary">IPv6 Exit Policy Summary</span></dt>
+      <dt><span class="tip" title="Port summary of IPv6 exit connections that the relay is going to accept or reject." data-original-title="IPv6 exit policy summary">IPv6 Exit Policy Summary</span></dt>
       <dd>
       <% if (relay.get('exit_policy_v6_summary') && ('accept' in relay.get('exit_policy_v6_summary'))) { %>
         <pre class="pre-scrollable">accept<% _.each(relay.get('exit_policy_v6_summary')['accept'],
@@ -51,7 +51,7 @@
         <pre class="pre-scrollable">None defined.</pre>
       <% } %>
       </dd>
-      <dt><span class="tip" data-content="Policy of exit connections that the relay is going to accept or reject." data-original-title="Exit policy">Exit Policy</span></dt>
+      <dt><span class="tip" title="Policy of exit connections that the relay is going to accept or reject." data-original-title="Exit policy">Exit Policy</span></dt>
       <dd>
       <pre class="pre-scrollable"><% _.each(relay.get('exit_policy'), function(line) { %>
 <%= $.trim(line) %><% }); %></pre>
@@ -67,14 +67,14 @@
     <% } else { %>
     <h3>Last Known Properties</h3>
     <dl>
-    <dt><span class="tip" data-content="Timestamp when the relay was last seen in the consensus." data-original-title="Last seen">Last Seen</span></dt>
+    <dt><span class="tip" title="Timestamp when the relay was last seen in the consensus." data-original-title="Last seen">Last Seen</span></dt>
     <dd><%= relay.get('last_seen') %></dd>
     <% } %>
 
-    <dt><span class="tip" data-content="20-byte unique identifier of the relay." data-original-title="Fingerprint">Fingerprint</span></dt>
+    <dt><span class="tip" title="20-byte unique identifier of the relay." data-original-title="Fingerprint">Fingerprint</span></dt>
     <dd><pre><%= relay.get('fingerprint') %></pre></dd>
 
-    <dt><span class="tip" data-content="Flags that the directory authorities assigned to this relay." data-original-title="Relay flags">Flags</span></dt>
+    <dt><span class="tip" title="Flags that the directory authorities assigned to this relay." data-original-title="Relay flags">Flags</span></dt>
     <dd><% _.each(relay.get('flags'), function(flag) { %>
         <span class="flags" title="<%= flag[0] %><br /><%= flag[2] %>">
             <img class="inline" alt="" src="img/flags/<%= flag[1] %>.png"/>
@@ -83,31 +83,31 @@
     <% }); %>
     </dd>
 
-    <dt><span class="tip" data-content="Country as found in a GeoIP database by resolving the relay's first onion-routing address." data-original-title="Country">Country</span></dt>
+    <dt><span class="tip" title="Country as found in a GeoIP database by resolving the relay's first onion-routing address." data-original-title="Country">Country</span></dt>
     <dd><img class="inline country" title="<%= relay.get('countryname') %>" alt="" src="img/cc/<%= relay.get('country') %>.png"/> <%= relay.get('countryname') %></dd>
 
-    <dt><span class="tip" data-content="Autonomous System Number" data-original-title="AS Number">AS Number</span></dt>
+    <dt><span class="tip" title="Autonomous System Number" data-original-title="AS Number">AS Number</span></dt>
     <dd><%= _.escape(relay.get('as_no')) %></dd>
 
-    <dt><span class="tip" data-content="Autonomous System Name" data-original-title="AS Name">AS Name</span></dt>
+    <dt><span class="tip" title="Autonomous System Name" data-original-title="AS Name">AS Name</span></dt>
     <dd><%= _.escape(relay.get('as_name')) %></dd>
 
-    <dt><span class="tip" data-content="Date and time when the relay was last (re-)started." data-original-title="Last restarted">Last Restarted</span></dt>
+    <dt><span class="tip" title="Date and time when the relay was last (re-)started." data-original-title="Last restarted">Last Restarted</span></dt>
     <dd><%= relay.get('last_restarted') %></dd>
 
-    <dt><span class="tip" data-content="Other family members of this relay." data-original-title="Family Members">Family Members</span></dt>
+    <dt><span class="tip" title="Other family members of this relay." data-original-title="Family Members">Family Members</span></dt>
     <dd><pre><% if (relay.get('effective_family') !== null) { %><% _.each(relay.get('effective_family'), function(member) { %><% var valid = member.match(RegExp("^\$[A-F0-9]{40}$")); %>
 <% if (valid) { %><a href="#details/<%= member.replace('$', '') %>" title="Effective family member"><% } %><%= member %><% if (valid) { %></a><% }}); %><% } %>
 <% if (relay.get('alleged_family') !== null) { %><% _.each(relay.get('alleged_family'), function(member) { %><% var valid = member.match(RegExp("^\$[A-F0-9]{40}$")); %>
 <% if (valid) { %><a href="#details/<%= member.replace('$', '') %>" title="Alleged family member" class="alleged"><% } %><%= member %><% if (valid) { %></a><% }}); %><% } %></pre></dd>
 
-    <dt><span class="tip" data-content="Date and time when the relay last published a descriptor to the directory authorities." data-original-title="Descriptor published">Descriptor Published</span></dt>
+    <dt><span class="tip" title="Date and time when the relay last published a descriptor to the directory authorities." data-original-title="Descriptor published">Descriptor Published</span></dt>
     <dd><%= relay.get('desc_published') %></dd>
 
-    <dt><span class="tip" data-content="What OS and Tor version the relay is using" data-original-title="Platform">Platform</span></dt>
+    <dt><span class="tip" title="What OS and Tor version the relay is using" data-original-title="Platform">Platform</span></dt>
     <dd><%= _.escape(relay.get('platform')) %></dd>
 
-    <dt><span class="tip" data-content="Weight assigned to this relay by the directory authorities that clients use in their path selection algorithm. The unit is arbitrary; currently it's kilobytes per second, but that might change in the future." data-original-title="Consensus Weight">Consensus Weight</span></dt>
+    <dt><span class="tip" title="Weight assigned to this relay by the directory authorities that clients use in their path selection algorithm. The unit is arbitrary; currently it's kilobytes per second, but that might change in the future." data-original-title="Consensus Weight">Consensus Weight</span></dt>
     <dd><%= relay.get('consensus_weight') %></dd>
 
     </dl>
@@ -117,14 +117,14 @@
     <dl>
 
     <% if (relay.get('running') === false) { %>
-    <dt><span class="tip" data-content="The time since this relay was last seen online." data-original-title="Downtime">Downtime</span></dt>
+    <dt><span class="tip" title="The time since this relay was last seen online." data-original-title="Downtime">Downtime</span></dt>
     <dd><%= relay.get('downtime') %></dd>
     <% } else {%>
-    <dt><span class="tip" data-content="The time since this relay is online." data-original-title="Uptime">Uptime</span></dt>
+    <dt><span class="tip" title="The time since this relay is online." data-original-title="Uptime">Uptime</span></dt>
     <dd><%= relay.get('uptime_hrfull') %></dd>
     <% } %>
 
-    <dt><span class="tip" data-content="Whether this relay is listed in the current Tor directory or not." data-original-title="Running">Running</span></dt>
+    <dt><span class="tip" title="Whether this relay is listed in the current Tor directory or not." data-original-title="Running">Running</span></dt>
     <dd><%= relay.get('running') %></dd>
 
     </dl>

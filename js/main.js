@@ -12,7 +12,6 @@ require.config({
     datatablest: 'libs/datatables/dataTables.TorStatus',
     tooltip: 'libs/bootstrap/bootstrap-tooltip',
     typeahead: 'libs/bootstrap/bootstrap-typeahead',
-    popover: 'libs/bootstrap/bootstrap-popover',
     collapse: 'libs/bootstrap/bootstrap-collapse',
     d3js: 'libs/d3js/d3.v3.min',
     jssha: 'libs/jssha/sha1',

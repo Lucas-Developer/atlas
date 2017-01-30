@@ -10,7 +10,6 @@ define([
   'text!templates/details/bridge.html',
   'text!templates/details/error.html',
   'tooltip',
-  'popover',
   'd3js',
   'collapse',
   'helpers'
@@ -241,9 +240,9 @@ define([
             }
 
             $("#loading").hide();
-            $(".flag .tooltip").hide();
-            $(".tip").popover();
             $(".flags").tooltip();
+            $(".flag .tooltip").hide();
+            $(".tip").tooltip();
             $(".flag").hover(function(){
                 $(this).children(".tooltip").show();
 
