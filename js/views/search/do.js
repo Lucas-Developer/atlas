@@ -157,12 +157,14 @@ define([
 				// Save the state of the tables
                 "sDom": "<'row'<'span6'l><'span6 hide'f>r>t<'row'<'span6'i><'span6'p>>",
 				"bStateSave": false,
-				"aaSorting": []
+				"aaSorting": [],
+                "fnDrawCallback": function( oSettings ) {
+                    // Make the tooltips
+                    $(".flags").tooltip();
+                    $(".country").tooltip();
+                    $(".uptime").tooltip();
+                }
 			});
-            // Make the tooltips
-            $(".flags").tooltip();
-            $(".country").tooltip();
-            $(".uptime").tooltip();
             // Type ahead for country codes
             $('.typeahead').typeahead({source:_.values(CountryCodes)});
             $('input#flags').typeahead({
