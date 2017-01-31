@@ -32,7 +32,6 @@ define([
                 width = 550 - margin.left - margin.right,
                 height = 342 - margin.top - margin.bottom;
             var svg = d3.select("#" + g).append("svg:svg")
-                .attr("id", g)
                 .attr("version", 1.1)
                 .attr("xmlns", "http://www.w3.org/2000/svg")
                 .attr("width", width + margin.left + margin.right)
