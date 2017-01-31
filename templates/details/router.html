@@ -21,10 +21,10 @@
       <dd><%= relay.get('or_addresses') %></dd>
 
       <dt><span class="tip" title="These are the contact details of the Tor relay operator" data-original-title="ContactInfo">Contact</span></dt>
-      <dd><%= _.escape(relay.get('contact')) %></dd>
+      <dd><%= _.escape( relay.get('contact')!='undefined' ? relay.get('contact') : 'none' ) %></dd>
 
       <dt><span class="tip" title="Address and port where the relay listens for directory requests." data-original-title="Directory port">Dir Address</span></dt>
-      <dd><%= relay.get('dir_address') %></dd>
+      <dd><%= relay.get('dir_address') ? relay.get('dir_address') : 'none' %></dd>
 
       <dt>
       <span class="tip" title="Bandwidth that the relay is willing and able to provide in bytes per second." data-original-title="Advertised bandwidth">Advertised Bandwidth</span>
@@ -48,7 +48,7 @@
         <pre class="pre-scrollable">reject<% _.each(relay.get('exit_policy_v6_summary')['reject'],
           function(ports) { %><br>  <%= $.trim(ports) %><% });} %></pre>
       <% if (relay.get('exit_policy_v6_summary') == null) { %>
-        <pre class="pre-scrollable">None defined.</pre>
+        <pre class="pre-scrollable">none defined</pre>
       <% } %>
       </dd>
       <dt><span class="tip" title="Policy of exit connections that the relay is going to accept or reject." data-original-title="Exit policy">Exit Policy</span></dt>
@@ -100,14 +100,14 @@
         Effective family members:<br>
         <pre><% if (relay.get('effective_family') !== null) { %><% _.each(relay.get('effective_family'), function(member) { %><% var valid = member.match(RegExp("^\$[A-F0-9]{40}$")); %>
 <% if (valid) { %><a href="#details/<%= member.replace('$', '') %>" title="Effective family member"><% } %><%= member %><% if (valid) { %></a><% }}); %>
-<% } %></pre>
+<% } %><% if (relay.get('effective_family') == null) { %>none<% } %></pre>
         Alleged family members:<br>
         <pre><% if (relay.get('alleged_family') !== null) { %><% _.each(relay.get('alleged_family'), function(member) { %><% var valid = member.match(RegExp("^\$[A-F0-9]{40}$")); %>
-<% if (valid) { %><a href="#details/<%= member.replace('$', '') %>" title="Alleged family member" class="alleged"><% } %><%= member %><% if (valid) { %></a><% }}); %><% } %></pre>
+<% if (valid) { %><a href="#details/<%= member.replace('$', '') %>" title="Alleged family member" class="alleged"><% } %><%= member %><% if (valid) { %></a><% }}); %><% } %><% if (relay.get('alleged_family') == null) { %>none<% } %></pre>
     </dd>
 
     <dt><span class="tip" title="Date and time when the relay last published a descriptor to the directory authorities." data-original-title="Descriptor published">Descriptor Published</span></dt>
-    <dd><%= relay.get('desc_published') %></dd>
+    <dd><%= relay.get('desc_published') ? relay.get('desc_published') : 'never' %></dd>
 
     <dt><span class="tip" title="What OS and Tor version the relay is using" data-original-title="Platform">Platform</span></dt>
     <dd><%= _.escape(relay.get('platform')) %></dd>

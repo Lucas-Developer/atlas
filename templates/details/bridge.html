@@ -23,7 +23,7 @@
       <dt>
       <span class="tip" title="Bandwidth that the bridge is willing and able to provide in bytes per second." data-original-title="Advertised bandwidth">Advertised Bandwidth</span>
       </dt>
-      <dd><%= relay.get('bandwidth_hr') %></dd>
+      <dd><%= relay.get('bandwidth_hr') ? relay.get('bandwidth_hr') : 'not defined' %></dd>
     </dl>
 
 
@@ -58,7 +58,7 @@
     <dd><%= _.escape(relay.get('platform')) %></dd>
 
     <dt><span class="tip" title="Transport protocols supported by this bridge." data-original-title="Transport protocols">Transport protocols</span></dt>
-    <dd><%= relay.get('transports') %></dd>
+    <dd><%= relay.get('transports') ? relay.get('transports') : 'none' %></dd>
 
     </dl>
     </div>
