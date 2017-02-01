@@ -19,7 +19,6 @@ define([
             var y = first.getTime();
 
             _.each(history[period].values, function(value, i) {
-                y += history[period].interval*1000;
                 var x = null
                 if (value != null) {
                     x = value*history[period].factor;
@@ -32,6 +31,7 @@ define([
                 var mperiod = "bw_" + period.split("_")[1]
                 var newar = model.get(mperiod)[name];
                 newar.push([y,x]);
+                y += history[period].interval*1000;
             });
         });
         return newar;
@@ -47,7 +47,6 @@ define([
                             time[0], time[1], time[2]);
             var y = first.getTime();
             _.each(history[period].values, function(value, i) {
-                y += history[period].interval*1000;
                 var x = null
                 if (value != null) {
                     x = value*history[period].factor;
@@ -55,6 +54,7 @@ define([
                 var mperiod = "weights_" + period.split("_")[1]
                 newar = model.get(mperiod)[name];
                 newar.push([y,x]);
+                y += history[period].interval*1000;
             });
         });
         return newar;
@@ -70,7 +70,6 @@ define([
                             time[0], time[1], time[2]);
             var y = first.getTime();
             _.each(history[period].values, function(value, i) {
-                y += history[period].interval*1000;
                 var x = null
                 if (value != null) {
                     x = value*history[period].factor;
@@ -78,6 +77,7 @@ define([
                 var mperiod = "clients_" + period.split("_")[1]
                 newar = model.get(mperiod)[name];
                 newar.push([y,x]);
+                y += history[period].interval*1000;
             });
         });
         return newar;
