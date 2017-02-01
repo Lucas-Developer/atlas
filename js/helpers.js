@@ -262,3 +262,13 @@ function hrBandwidth(bw) {
     }
     return bw;
 }
+
+function checkIfDataIsUpToDate(lastModifiedHeader) {
+    // check if onionoo document is up to date:
+    var lastModified = new Date(Date.parse(lastModifiedHeader));
+    var currentTime = new Date();
+    var hoursSinceLastUpdate =  (currentTime.getTime() - lastModified.getTime()) / (1000 * 60 * 60);
+    if (hoursSinceLastUpdate > 24 && $("#outdatedData").length==0) {
+        $('<div class="container" id="outdatedData"><div class="alert"><strong>Outdated data!</strong><p>Onionoo seems to serve outdated data :( Last update was: '+lastModified+'</p></div></div>').insertAfter("body > .navbar");
+    }
+}
