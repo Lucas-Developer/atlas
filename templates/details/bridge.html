@@ -44,7 +44,7 @@
 
     <dt><span class="tip" title="Flags that the directory authorities assigned to this bridge." data-original-title="Bridge flags">Flags</span></dt>
     <dd><% _.each(relay.get('flags'), function(flag) { %>
-    <span class="flags" title="<%= flag[0] %><br /><%= flag[2] %>">
+    <span class="flags" title="<%= flag[2] %>">
         <img class="inline" alt="" src="img/flags/<%= flag[1] %>.png"/>
         <span class="inline"><%= flag[0] %></span>
     </span>
