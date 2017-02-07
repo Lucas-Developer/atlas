@@ -240,17 +240,7 @@ define([
             }
 
             $("#loading").hide();
-            $(".flags").tooltip();
-            $(".flag .tooltip").hide();
             $(".tip").tooltip();
-            $(".flag").hover(function(){
-                $(this).children(".tooltip").show();
-
-            }, function(e){
-
-                $(this).children(".tooltip").hide();
-
-            });
         },
         error: function() {
             var compiledTemplate = _.template(errorDetailsTemplate, {relay: null});

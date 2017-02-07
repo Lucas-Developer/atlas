@@ -81,19 +81,19 @@
             </td>
 			<td><span data-filter="<%= relay.get('bandwidth') %>"><%= relay.get('bandwidth_hr') %></td>
 			<td>
-            <span data-hidden="<%= relay.get('last_restarted') %>" title="<%= relay.get('uptime_hrfull') %>" data-filter="<%= relay.get('uptime') %>" class="uptime">
+            <span data-hidden="<%= relay.get('last_restarted') %>" title="<%= relay.get('uptime_hrfull') %>" data-filter="<%= relay.get('uptime') %>" class="tip uptime">
             <% if (relay.get('running') === false) { %><s><% } %><%= relay.get('uptime_hr') %><% if (relay.get('running') === false) { %></s><% } %>
             </span>
             </td>
 			<td>
             <% if ( relay.get('country')) { %>
-            <img class="inline country" title="<%= relay.get('countryname') %>" alt="<%= relay.get('countryname') %>" src="img/cc/<%= relay.get('country') %>.png"/>
+            <img class="tip inline country" title="<%= relay.get('countryname') %>" alt="<%= relay.get('countryname') %>" src="img/cc/<%= relay.get('country') %>.png"/>
             <% } %>
             </td>
 			<td><%= relay.get('or_address') %></td>
 			<td>
             <% _.each(relay.get('flags'), function(flag) { %>
-            <img class="inline flags" rel="tooltip" src="img/flags/<%= flag[1] %>.png" alt="<%= flag[0] %>" title="<%= flag[0] %><br /><%= flag[2] %>"/>
+            <img class="tip inline flags" src="img/flags/<%= flag[1] %>.png" alt="<%= flag[0] %>" title="<%= flag[0] %><br /><%= flag[2] %>"/>
             <% }); %>
             </td>
 			<td><%= relay.get('or_port') %></td>

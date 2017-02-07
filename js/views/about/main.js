@@ -18,16 +18,6 @@ define([
             var compiledTemplate = _.template(aboutTemplate, data);
             this.el.html(compiledTemplate);
             //$("#loading").hide();
-            //$(".flag .tooltip").hide();
-            //$(".tip").tooltip();
-            $(".flag").hover(function(){
-                $(this).children(".tooltip").show();
-
-            }, function(e){
-
-                $(this).children(".tooltip").hide();
-
-            });
         }
     });
     return new aboutView;

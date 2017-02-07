@@ -160,9 +160,7 @@ define([
 				"aaSorting": [],
                 "fnDrawCallback": function( oSettings ) {
                     // Make the tooltips
-                    $(".flags").tooltip();
-                    $(".country").tooltip();
-                    $(".uptime").tooltip();
+                    $(".tip").tooltip();
                 }
 			});
             // Type ahead for country codes
