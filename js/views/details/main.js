@@ -240,7 +240,7 @@ define([
             }
 
             $("#loading").hide();
-            $(".tip").tooltip();
+            $(".tip").tooltip({ placement: 'right' });
         },
         error: function() {
             var compiledTemplate = _.template(errorDetailsTemplate, {relay: null});
