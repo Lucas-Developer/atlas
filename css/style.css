@@ -63,6 +63,6 @@ span.flags img {
     top:2px;
 }
 
-.tooltip * {
+.tooltip-inner {
     text-align:left;
 }
