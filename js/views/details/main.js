@@ -138,9 +138,7 @@ define([
 
             /* Add a legend. */
             var legend = svg.append("g")
-                .attr("class", "legend")
-                .attr("x", width - 65)
-                .attr("y", 25);
+                .attr("class", "legend");
             legend.selectAll("g").data(data)
                 .enter().append("g")
                 .each(function(d, i) {
@@ -155,8 +153,6 @@ define([
                     g.append("svg:text")
                         .attr("x", legendPos[i][0] - margin.left + 15)
                         .attr("y", legendPos[i][1] - margin.top + 14)
-                        .attr("height", 30)
-                        .attr("width", 100)
                         .style("fill", colors[i])
                         .style("font-family", "Helvetica")
                         .style("font-size", "12px")
