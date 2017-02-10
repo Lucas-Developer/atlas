@@ -171,7 +171,7 @@ define([
                 .node()
                 .innerHTML;
             d3.select("#save_" + g)
-                .attr("href", "data:image/svg+xml;base64,\n" + btoa(html));
+                .attr("href", "data:image/svg+xml;base64," + btoa(html));
         },
         render: function() {
             var data = {relay: this.model};
