@@ -66,3 +66,12 @@ span.flags img {
 .tooltip * {
     text-align:left;
 }
+
+dd {
+    margin-left: 0;
+    margin-bottom: 1.2em;
+}
+
+pre {
+    padding: 5px;
+}
