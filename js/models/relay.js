@@ -160,13 +160,8 @@ define([
                     relay.obandwidth = relay.observed_bandwidth ? hrBandwidth(relay.observed_bandwidth) : null;
                     relay.bandwidth = relay.advertised_bandwidth ? relay.advertised_bandwidth : null;
                     relay.bandwidth_hr = relay.advertised_bandwidth ? hrBandwidth(relay.advertised_bandwidth) : null;
-                    if(relay.alleged_family || relay.effective_family) {
-						relay.effective_family = relay.effective_family ? relay.effective_family : null;
-						relay.alleged_family = relay.alleged_family ? relay.alleged_family : null;
-						relay.empty_family = false;
-					} else {
-						relay.empty_family = true;
-					}
+                    relay.effective_family = relay.effective_family ? relay.effective_family : null;
+                    relay.alleged_family = relay.alleged_family ? relay.alleged_family : null;
                     if (relay.is_bridge) {
                         var new_addresses = [];
                         _.each(relay.or_addresses, function(or_addr) {
