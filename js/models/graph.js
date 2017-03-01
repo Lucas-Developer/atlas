@@ -114,7 +114,8 @@ define([
                 bw_years: {write: [], read: []}
             });
 
-            $.getJSON(this.baseurl+'/bandwidth?lookup='+fingerprint, function(data) {
+            var xhr = $.getJSON(this.baseurl+'/bandwidth?lookup='+fingerprint, function(data) {
+                checkIfDataIsUpToDate(xhr.getResponseHeader("Last-Modified"));
                 model.data = data;
                 success(model, data);
             });
@@ -143,7 +144,8 @@ define([
                 weights_years: {cw: [], guard: [], middle: [], exit: []}
             });
 
-            $.getJSON(this.baseurl+'/weights?lookup='+fingerprint, function(data) {
+            var xhr = $.getJSON(this.baseurl+'/weights?lookup='+fingerprint, function(data) {
+                checkIfDataIsUpToDate(xhr.getResponseHeader("Last-Modified"));
                 model.data = data;
                 success(model, data);
             });
@@ -187,7 +189,8 @@ define([
                 clients_years: {average: []}
             });
 
-            $.getJSON(this.baseurl+'/clients?lookup='+fingerprint, function(data) {
+            var xhr = $.getJSON(this.baseurl+'/clients?lookup='+fingerprint, function(data) {
+                checkIfDataIsUpToDate(xhr.getResponseHeader("Last-Modified"));
                 model.data = data;
                 success(model, data);
             });

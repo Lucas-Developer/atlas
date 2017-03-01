@@ -136,7 +136,8 @@ define([
             var error = options.error;
             var model = this;
             console.log("doing query..");
-            $.getJSON(this.baseurl+'/details?lookup='+this.fingerprint, function(data) {
+            var xhr = $.getJSON(this.baseurl+'/details?lookup='+this.fingerprint, function(data) {
+                checkIfDataIsUpToDate(xhr.getResponseHeader("Last-Modified"));
                 var relay = null;
                 if (data.relays.length >= 1) {
                     relay = data.relays[0];

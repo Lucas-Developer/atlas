@@ -66,3 +66,8 @@ span.flags img {
 .tooltip-inner {
     text-align:left;
 }
+
+#outdatedData > div {
+    position:relative;
+    top:60px;
+}

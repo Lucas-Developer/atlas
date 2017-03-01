@@ -15,6 +15,7 @@ define([
             var err = 0;
             var collection = this;
             options.success = $.getJSON(this.url, function(response) {
+                checkIfDataIsUpToDate(options.success.getResponseHeader("Last-Modified"));
                 this.fresh_until = response.fresh_until;
                 this.valid_after = response.valid_after;
                 var relays = [];
