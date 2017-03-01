@@ -71,3 +71,12 @@ span.flags img {
     position:relative;
     top:60px;
 }
+
+dd {
+    margin-left: 0;
+    margin-bottom: 1.2em;
+}
+
+pre {
+    padding: 5px;
+}
