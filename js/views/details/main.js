@@ -26,6 +26,9 @@ define([
         plot: function(g, data, labels, legendPos, colors, tickFormat,
                        tooltipFormat) {
 
+            /* do not plot graph if there is no data */
+            if (data[0].length==0) return;
+
             /* Initialize graph. */
             var margin = {top: 30, right: 10, bottom: 20, left: 60},
                 width = 550 - margin.left - margin.right,
