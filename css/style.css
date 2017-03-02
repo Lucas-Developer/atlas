@@ -80,3 +80,16 @@ dd {
 pre {
     padding: 5px;
 }
+
+@media screen and (max-width: 980px) {
+    .splash h1 {
+        font-size:40px;
+    }
+    .splash p {
+        line-height: 30px;
+        font-size: 24px;
+    }
+    .span6.hide {
+        display: none !important;
+    }
+}

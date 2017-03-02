@@ -272,3 +272,10 @@ function checkIfDataIsUpToDate(lastModifiedHeader) {
         $('<div class="container" id="outdatedData"><div class="alert"><strong>Outdated data!</strong><p>Onionoo seems to serve outdated data :( Last update was: '+lastModified+'</p></div></div>').insertAfter("body > .navbar");
     }
 }
+
+window.onhashchange = function(){
+    // close mobile menu on hash change
+    if ($('.nav-collapse').height()>50) {
+        $('.btn-navbar').click();
+    }
+}
