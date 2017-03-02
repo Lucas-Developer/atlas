@@ -71,8 +71,16 @@ define([
                 doSearchView.collection.baseurl + this.hashFingerprints(query);
             doSearchView.collection.lookup({
                 success: function(err){
-                    $("#content").show();
                     doSearchView.relays = doSearchView.collection.models;
+
+                    // Redirect to the details page when there is exactly one
+                    // search result.
+                    if (doSearchView.relays.length == 1) {
+                        document.location = "#details/" +
+                            doSearchView.relays[0].fingerprint;
+                        return;
+                    }
+                    $("#content").show();
 		    doSearchView.error = err;
                     doSearchView.render(query);
 		    $("#search-title").text(query);
