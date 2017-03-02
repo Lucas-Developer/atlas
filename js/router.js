@@ -20,8 +20,8 @@ define([
     	'*actions': 'defaultAction'
     },
 
-    hashFingerprints: function(fp){
-        if (fp.match(/^[a-f0-9]{40}/i) != null)
+    hashFingerprint: function(fp){
+        if (fp.match(/^[a-f0-9]{40}$/i) != null)
             return new jsSHA(fp, "HEX").getHash("SHA-1", "HEX").toUpperCase();
         else
             return fp
@@ -36,7 +36,7 @@ define([
         $("#loading").show();
         $("#content").hide();
 
-        mainDetailsView.model.fingerprint = this.hashFingerprints(fingerprint);
+        mainDetailsView.model.fingerprint = this.hashFingerprint(fingerprint);
         mainDetailsView.model.lookup({
             success: function(relay) {
                 $("#content").show();
@@ -68,7 +68,7 @@ define([
             $("#loading").hide();
         } else {
             doSearchView.collection.url =
-                doSearchView.collection.baseurl + this.hashFingerprints(query);
+                doSearchView.collection.baseurl + this.hashFingerprint(query);
             doSearchView.collection.lookup({
                 success: function(err){
                     doSearchView.relays = doSearchView.collection.models;
