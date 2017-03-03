@@ -17,7 +17,6 @@ define([
             var data = {};
             var compiledTemplate = _.template(aboutTemplate, data);
             this.el.html(compiledTemplate);
-            //$("#loading").hide();
         }
     });
     return new aboutView;

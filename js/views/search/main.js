@@ -8,9 +8,6 @@ define([
 ], function($, _, Backbone, mainSearchTemplate){
   var mainSearchView = Backbone.View.extend({
 	    el: $("#content"),
-	    initialize: function(){
-	    	$("#loading").show();
-	    },
 
 	    render: function(query){
 			document.title = "Atlas";
@@ -19,7 +16,6 @@ define([
 			this.el.html(compiledTemplate);
             $("#do_search").bind('click', function(){
                 var query = _.escape($('#query').val());
-                $("#loading").show();
                 $("#suggestion").hide();
                 document.location = "#search/"+query;
                 return false;
@@ -27,13 +23,10 @@ define([
 
             $("#home-search").bind('submit', function(){
                 var query = _.escape($('#query').val());
-                $("#loading").show();
                 $("#suggestion").hide();
                 document.location = "#search/"+query;
                 return false;
             });
-
-	    	$("#loading").hide();
 	    }
   });
   return new mainSearchView;

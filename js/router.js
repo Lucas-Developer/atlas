@@ -33,21 +33,21 @@ define([
         $("#home").removeClass("active");
         $("#about").removeClass("active");
 
-        $("#loading").show();
         $("#content").hide();
+        $("#loading").show();
 
         mainDetailsView.model.fingerprint = this.hashFingerprint(fingerprint);
         mainDetailsView.model.lookup({
             success: function(relay) {
-                $("#content").show();
     	        mainDetailsView.render();
                 $("#loading").hide();
+                $("#content").show();
 
             },
             error: function() {
-                $("#content").show();
                 mainDetailsView.error();
                 $("#loading").hide();
+                $("#content").show();
             }
         });
     },
@@ -57,15 +57,15 @@ define([
         $("#home").removeClass("active");
         $("#about").removeClass("active");
 
-        $("#loading").show();
         $("#content").hide();
+        $("#loading").show();
 
         $("#nav-search").val(query);
         if (query == "") {
-            $("#content").show();
 	    doSearchView.error = 5;
             doSearchView.renderError();
             $("#loading").hide();
+            $("#content").show();
         } else {
             doSearchView.collection.url =
                 doSearchView.collection.baseurl + this.hashFingerprint(query);
@@ -80,18 +80,18 @@ define([
                             doSearchView.relays[0].fingerprint;
                         return;
                     }
-                    $("#content").show();
 		    doSearchView.error = err;
                     doSearchView.render(query);
 		    $("#search-title").text(query);
                     $("#loading").hide();
+                    $("#content").show();
                 },
 
                 error: function(err){
-                    $("#content").show();
 		    doSearchView.error = err;
 		    doSearchView.renderError();
                     $("#loading").hide();
+                    $("#content").show();
                 }
             });
         }
@@ -100,24 +100,24 @@ define([
         $("#home").removeClass("active");
         $("#about").removeClass("active");
 
-        $("#loading").show();
         $("#content").hide();
+        $("#loading").show();
 
         doSearchView.collection.url = "https://onionoo.torproject.org/summary?type=relay&order=-consensus_weight&limit=10&running=true";
             doSearchView.collection.lookup({
                 success: function(relays){
-                    $("#content").show();
                     doSearchView.relays = doSearchView.collection.models;
                     doSearchView.render("");
 		    $("#search-title").text("Top 10 Relays by Consensus Weight");
                     $("#loading").hide();
+                    $("#content").show();
                 },
 
                 error: function(erno){
-                    $("#content").show();
                     doSearchView.error = erno;
                     doSearchView.renderError();
                     $("#loading").hide();
+                    $("#content").show();
                 }
             });
     },
@@ -126,13 +126,10 @@ define([
         $("#home").removeClass("active");
         $("#about").addClass("active");
 
-        $("#loading").show();
-        //$("#content").hide();
-
     	aboutView.render();
 
         $("#loading").hide();
-        //$("#content").show();
+        $("#content").show();
     },
 
     // No matched rules go to the default home page
@@ -140,13 +137,10 @@ define([
         $("#home").addClass("active");
         $("#about").removeClass("active");
 
-        $("#loading").show();
-        //$("#content").hide();
-
         mainSearchView.render();
 
-        //$("#content").show();
         $("#loading").hide();
+        $("#content").show();
     }
 
   });

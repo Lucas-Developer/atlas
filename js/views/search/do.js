@@ -15,7 +15,6 @@ define([
 	    el: $("#content"),
 	    initialize: function() {
 	    	this.collection = new resultsCollection;
-	    	$("#loading").show();
 	    },
         filtering: function() {
             var rangefilter = function(data) {
@@ -150,7 +149,6 @@ define([
             var asInitVals = new Array();
 		var compiledTemplate = _.template(doSearchTemplate, {relays: this.relays, countries: CountryCodes, error: this.error});
 			this.el.html(compiledTemplate);
-	    	$("#loading").hide();
 			var fp = this;
 			// This creates the table using DataTables
 			var oTable = $('#torstatus_results').dataTable({
@@ -230,7 +228,6 @@ define([
 
 	    renderError: function(){
 	    	var compiledTemplate = _.template(doSearchTemplate, {relays: null, error: this.error, countries: null});
-	    	$("#loading").hide();
 	    	this.el.html(compiledTemplate);
 	    }
 

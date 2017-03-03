@@ -21,7 +21,6 @@ define([
            this.model = new relayModel;
            this.graph = new graphModel;
            //console.log(this.graph);
-           $("#loading").show();
         },
         plot: function(g, data, labels, legendPos, colors, tickFormat,
                        tooltipFormat) {
@@ -238,12 +237,10 @@ define([
                 });
             }
 
-            $("#loading").hide();
             $(".tip").tooltip({ placement: 'right' });
         },
         error: function() {
             var compiledTemplate = _.template(errorDetailsTemplate, {relay: null});
-            $("#loading").hide();
             this.el.html(compiledTemplate);
         }
     });
