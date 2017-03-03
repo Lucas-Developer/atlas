@@ -38,11 +38,13 @@
 
 }
 
-#loading {
-    width: 24px;
-    margin: 0 auto;
-    padding-top: 50px;
-    padding-bottom: 100px;
+.progress {
+    width: 50%;
+    margin: 100px auto;
+}
+
+.progress .bar {
+    width: 50%;
 }
 
 .container #content {

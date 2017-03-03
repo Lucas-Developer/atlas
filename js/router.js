@@ -34,19 +34,19 @@ define([
         $("#about").removeClass("active");
 
         $("#content").hide();
-        $("#loading").show();
+        $(".progress").show();
 
         mainDetailsView.model.fingerprint = this.hashFingerprint(fingerprint);
         mainDetailsView.model.lookup({
             success: function(relay) {
     	        mainDetailsView.render();
-                $("#loading").hide();
+                $(".progress").hide();
                 $("#content").show();
 
             },
             error: function() {
                 mainDetailsView.error();
-                $("#loading").hide();
+                $(".progress").hide();
                 $("#content").show();
             }
         });
@@ -58,13 +58,13 @@ define([
         $("#about").removeClass("active");
 
         $("#content").hide();
-        $("#loading").show();
+        $(".progress").show();
 
         $("#nav-search").val(query);
         if (query == "") {
 	    doSearchView.error = 5;
             doSearchView.renderError();
-            $("#loading").hide();
+            $(".progress").hide();
             $("#content").show();
         } else {
             doSearchView.collection.url =
@@ -83,14 +83,14 @@ define([
 		    doSearchView.error = err;
                     doSearchView.render(query);
 		    $("#search-title").text(query);
-                    $("#loading").hide();
+                    $(".progress").hide();
                     $("#content").show();
                 },
 
                 error: function(err){
 		    doSearchView.error = err;
 		    doSearchView.renderError();
-                    $("#loading").hide();
+                    $(".progress").hide();
                     $("#content").show();
                 }
             });
@@ -101,7 +101,7 @@ define([
         $("#about").removeClass("active");
 
         $("#content").hide();
-        $("#loading").show();
+        $(".progress").show();
 
         doSearchView.collection.url = "https://onionoo.torproject.org/summary?type=relay&order=-consensus_weight&limit=10&running=true";
             doSearchView.collection.lookup({
@@ -109,14 +109,14 @@ define([
                     doSearchView.relays = doSearchView.collection.models;
                     doSearchView.render("");
 		    $("#search-title").text("Top 10 Relays by Consensus Weight");
-                    $("#loading").hide();
+                    $(".progress").hide();
                     $("#content").show();
                 },
 
                 error: function(erno){
                     doSearchView.error = erno;
                     doSearchView.renderError();
-                    $("#loading").hide();
+                    $(".progress").hide();
                     $("#content").show();
                 }
             });
@@ -128,7 +128,7 @@ define([
 
     	aboutView.render();
 
-        $("#loading").hide();
+        $(".progress").hide();
         $("#content").show();
     },
 
@@ -139,7 +139,7 @@ define([
 
         mainSearchView.render();
 
-        $("#loading").hide();
+        $(".progress").hide();
         $("#content").show();
     }
 
