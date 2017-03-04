@@ -120,9 +120,6 @@
 <% if (valid) { %><a href="#details/<%= member.replace('$', '') %>" title="Alleged family member" class="alleged"><% } %><%= member %><% if (valid) { %></a><% }}); %><% } %><% if (relay.get('alleged_family') == null) { %>none<% } %></pre>
     </dd>
 
-    <dt><span class="tip" title="Date and time when the relay last published a descriptor to the directory authorities." data-original-title="Descriptor published">Descriptor Published</span></dt>
-    <dd><%= relay.get('desc_published') ? relay.get('desc_published') : 'never' %></dd>
-
     <dt><span class="tip" title="What OS and Tor version the relay is using" data-original-title="Platform">Platform</span></dt>
     <dd><%= _.escape(relay.get('platform')) %></dd>
 
