@@ -50,6 +50,20 @@
     </span>
     <% }); %>
     </dd>
+    
+    <dt><span class="tip" title="" data-original-title="Properties">Properties</span></dt>
+    <dd>
+    <% var propertyCount = 0; %>
+    <% if (relay.get('recommended_version') === false) {
+        propertyCount++;
+        %>
+        <span class="tip flags" title="This relay is running a software version that is not recommended by the directory authorities.">
+            <img class="inline" alt="" src="img/properties/not_recommended_16x16.png"/>
+            <span class="inline">Not recommended</span>
+        </span>
+    <% } %>
+    <%=propertyCount==0?'none':''%>
+    </dd>
 
     <dt><span class="tip" title="Date and time when the bridge was last (re-)started." data-original-title="Last restarted">Last Restarted</span></dt>
     <dd><%= relay.get('last_restarted') %></dd>

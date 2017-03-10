@@ -55,9 +55,6 @@ define([
                 if (flag == "Exit") {
                     output.push([flag,"cloud_download_"+size[0], "This relay is more useful for building general-purpose exit circuits than for relay circuits."]);
                 }
-                if (flag == "Not Recommended") {
-                    output.push([flag,"not_recommended_"+size[0], "This relay is running a software version that is not recommended by the directory authorities."]);
-                }
             });
             return output;
         },
@@ -194,9 +191,6 @@ define([
                     relay.fingerprint = relay.hashed_fingerprint ? relay.hashed_fingerprint : relay.fingerprint;
                     model.set({badexit: false});
                     var size = ['16x16', '14x16', '8x16'];
-                    if (relay.recommended_version===false) {
-                        relay.flags.push("Not Recommended");
-                    }
                     relay.flags = model.parseflags(relay.flags, size);
                     model.set(relay, options);
                     success(model, relay);

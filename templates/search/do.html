@@ -60,6 +60,7 @@
 			<th>Country</th>
 			<th>IP</th>
 			<th>Flags</th>
+			<th>Properties</th>
 			<th>ORPort</th>
 			<th>DirPort</th>
 			<th>Type</th>
@@ -96,6 +97,11 @@
             <img class="tip inline flags" src="img/flags/<%= flag[1] %>.png" alt="<%= flag[0] %>" title="<%= flag[0] %><br /><%= flag[2] %>"/>
             <% }); %>
             </td>
+            <td>
+            <% if (relay.get('recommended_version') === false) { %>
+                <img class="tip inline flags" src="img/properties/not_recommended_16x16.png" alt="Not recommended" title="Not recommended<br />This relay is running a software version that is not recommended by the directory authorities."/>
+            <% } %>
+            </td>
 			<td><%= relay.get('or_port') %></td>
 			<td><%= relay.get('dir_port') %></td>
 			<td>
@@ -131,6 +137,8 @@
         </th>
 		<th>
             <input type="text" id="flags" name="flags" placeholder="Flags" class="search_init">
+        </th>
+        <th>
         </th>
 		<th>
             <input type="text" id="or_port" name="or_port" placeholder="ORPort" class="search_init span1">

@@ -81,6 +81,10 @@ pre {
     padding: 5px;
 }
 
+input {
+    width:150px;
+}
+
 @media screen and (max-width: 980px) {
     .splash h1 {
         font-size:40px;

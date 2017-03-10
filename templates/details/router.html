@@ -82,6 +82,20 @@
         </span>
     <% }); %>
     </dd>
+    
+    <dt><span class="tip" title="" data-original-title="Properties">Properties</span></dt>
+    <dd>
+    <% var propertyCount = 0; %>
+    <% if (relay.get('recommended_version') === false) {
+        propertyCount++;
+        %>
+        <span class="tip flags" title="This relay is running a software version that is not recommended by the directory authorities.">
+            <img class="inline" alt="" src="img/properties/not_recommended_16x16.png"/>
+            <span class="inline">Not recommended</span>
+        </span>
+    <% } %>
+    <%=propertyCount==0?'none':''%>
+    </dd>
 
     <dt><span class="tip" title="Country as found in a GeoIP database by resolving the relay's first onion-routing address." data-original-title="Country">Country</span></dt>
     <dd><% if (relay.get('country')) { %><img class="inline country" title="<%= relay.get('countryname') %>" alt="" src="img/cc/<%= relay.get('country') %>.png"/> <%= relay.get('countryname') %><% } else { %>Unknown<% } %></dd>
