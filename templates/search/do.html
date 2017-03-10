@@ -54,6 +54,7 @@
 <table class="table table-bordered table-striped" id="torstatus_results">
 	<thead>
 		<tr>
+			<th style="width:16px;">&nbsp;</th>
 			<th>Nickname</th>
 			<th>Bandwidth</th>
 			<th>Uptime</th>
@@ -75,6 +76,13 @@
 		<% } else { %>
 			<tr class="odd">
 		<% } %>
+            <td>
+            <% if (relay.get('running') === false) { %>
+                <img class="tip inline flags" src="img/properties/offline_16x16.png" alt="Currently offline" title="This relay is currently offline."/>
+            <% } else { %>
+                <img class="tip inline flags" src="img/properties/online_16x16.png" alt="Currently running" title="This relay is currently running."/>
+            <% } %>
+            </td>
 			<td>
             <a href="#details/<%= relay.get('fingerprint') %>">
             <%= _.escape(relay.get('nickname')) %>
@@ -117,6 +125,8 @@
 	</tbody>
 	<tfoot>
 	<tr>
+        <th>
+        </th>
 		<th>
             <input type="text" id="nickname" name="nickname" placeholder="Nickname" class="search_init">
         </th>
