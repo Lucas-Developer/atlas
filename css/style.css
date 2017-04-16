@@ -41,6 +41,7 @@
 .progress {
     width: 50%;
     margin: 100px auto;
+    display: none;
 }
 
 .progress .bar {
