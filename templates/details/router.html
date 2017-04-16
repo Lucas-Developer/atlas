@@ -48,7 +48,7 @@
         <pre class="pre-scrollable">reject<% _.each(relay.get('exit_policy_v6_summary')['reject'],
           function(ports) { %><br>  <%= $.trim(ports) %><% });} %></pre>
       <% if (relay.get('exit_policy_v6_summary') == null) { %>
-        <pre class="pre-scrollable">none defined</pre>
+        <pre class="pre-scrollable">reject<br>  1-65535</pre>
       <% } %>
       </dd>
       <dt><span class="tip" title="Policy of exit connections that the relay is going to accept or reject." data-original-title="Exit policy">Exit Policy</span></dt>
