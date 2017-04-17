@@ -1,11 +1,11 @@
-<h1>Details for: <span id="relay_name"><%= relay.get('nickname') %></span></h1>
-<!-- div class="subnav">
-    <ul class="nav nav-pills">
-        <li><a href="#general">General</a></li>
-        <li><a href="#graphs">Graphs</a></li>
-        <li><a href="#misc">Misc</a></li>
-    </ul>
-</div-->
+<h1>
+    Details for: <%= relay.get('nickname') %>
+    <% if (relay.get('running') === false) { %>
+    <img class="tip" src="img/properties/offline_16x16.png" alt="Offline" title="This relay is offline."/>
+    <% } else { %>
+    <img class="tip" src="img/properties/online_16x16.png" alt="Running" title="This relay is running."/>
+    <% } %>
+</h1>
 
 <h2>General <small>Overall information on the Tor relay</small></h2>
 <hr/>
@@ -141,9 +141,6 @@
     <dt><span class="tip" title="The time since this relay is online." data-original-title="Uptime">Uptime</span></dt>
     <dd><%= relay.get('uptime_hrfull') %></dd>
     <% } %>
-
-    <dt><span class="tip" title="Whether this relay is listed in the current Tor directory or not." data-original-title="Running">Running</span></dt>
-    <dd><%= relay.get('running') %></dd>
 
     </dl>
     </div>
