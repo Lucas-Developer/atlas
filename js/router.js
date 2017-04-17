@@ -105,8 +105,9 @@ define([
 
         doSearchView.collection.url = "https://onionoo.torproject.org/summary?type=relay&order=-consensus_weight&limit=10&running=true";
             doSearchView.collection.lookup({
-                success: function(relays){
+                success: function(err){
                     doSearchView.relays = doSearchView.collection.models;
+                    doSearchView.error = err;
                     doSearchView.render("");
 		    $("#search-title").text("Top 10 Relays by Consensus Weight");
                     $(".progress").hide();
