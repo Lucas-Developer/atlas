@@ -11,7 +11,7 @@
 <hr/>
 
 <div class="row">
-    <div class="span4">
+    <div class="span6">
     <h3>Configuration</h3>
     <dl>
       <dt><span class="tip" title="This is the nickname that the Tor relay operator chose." data-original-title="Nickname">Nickname</span></dt>
@@ -60,19 +60,26 @@
 
 
     </div>
-    <div class="span4">
+    <div class="span6">
     <% if (relay.get('running') === true) { %>
     <h3>Properties</h3>
-    <dl>
     <% } else { %>
     <h3>Last Known Properties</h3>
-    <dl>
-    <dt><span class="tip" title="Timestamp when the relay was last seen in the consensus." data-original-title="Last seen">Last Seen</span></dt>
-    <dd><%= relay.get('last_seen') %></dd>
     <% } %>
+    <dl>
 
     <dt><span class="tip" title="20-byte unique identifier of the relay." data-original-title="Fingerprint">Fingerprint</span></dt>
     <dd><pre><%= relay.get('fingerprint') %></pre></dd>
+
+    <% if (relay.get('running') === true) { %>
+    <dt><span class="tip" title="The time since this relay is online." data-original-title="Uptime">Uptime</span></dt>
+    <dd><%= relay.get('uptime_hrfull') %></dd>
+    <% } else { %>
+    <dt><span class="tip" title="The time since this relay was last seen online." data-original-title="Downtime">Downtime</span></dt>
+    <dd><%= relay.get('downtime') %></dd>
+    <dt><span class="tip" title="Timestamp when the relay was last seen in the consensus." data-original-title="Last seen">Last Seen</span></dt>
+    <dd><%= relay.get('last_seen') %></dd>
+    <% } %>
 
     <dt><span class="tip" title="Flags that the directory authorities assigned to this relay." data-original-title="Relay flags">Flags</span></dt>
     <dd><% _.each(relay.get('flags'), function(flag) { %>
@@ -127,20 +134,6 @@
 
     <dt><span class="tip" title="Weight assigned to this relay by the directory authorities that clients use in their path selection algorithm. The unit is arbitrary; currently it's kilobytes per second, but that might change in the future." data-original-title="Consensus Weight">Consensus Weight</span></dt>
     <dd><%= relay.get('consensus_weight') %></dd>
-
-    </dl>
-    </div>
-    <div class="span4">
-    <h3>Current Status</h3>
-    <dl>
-
-    <% if (relay.get('running') === false) { %>
-    <dt><span class="tip" title="The time since this relay was last seen online." data-original-title="Downtime">Downtime</span></dt>
-    <dd><%= relay.get('downtime') %></dd>
-    <% } else {%>
-    <dt><span class="tip" title="The time since this relay is online." data-original-title="Uptime">Uptime</span></dt>
-    <dd><%= relay.get('uptime_hrfull') %></dd>
-    <% } %>
 
     </dl>
     </div>

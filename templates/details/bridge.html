@@ -11,7 +11,7 @@
 <hr/>
 
 <div class="row">
-    <div class="span4">
+    <div class="span6">
     <h3>Configuration</h3>
     <dl>
       <dt><span class="tip" title="This is the nickname that the Tor bridge operator chose." data-original-title="Nickname">Nickname</span></dt>
@@ -28,19 +28,26 @@
 
 
     </div>
-    <div class="span4">
+    <div class="span6">
     <% if (relay.get('running') === true) { %>
     <h3>Properties</h3>
-    <dl>
     <% } else { %>
     <h3>Last Known Properties</h3>
-    <dl>
-    <dt><span class="tip" title="Timestamp when the bridge was last seen in the consensus." data-original-title="Last seen">Last Seen</span></dt>
-    <dd><%= relay.get('last_seen') %></dd>
     <% } %>
+    <dl>
 
     <dt><span class="tip" title="Hash of 20-byte unique identifier of the bridge." data-original-title="Hashed Fingerprint">Hashed Fingerprint</span></dt>
     <dd><pre><%= relay.get('fingerprint') %></pre></dd>
+
+    <% if (relay.get('running') === true) { %>
+    <dt><span class="tip" title="The time since this bridge is online." data-original-title="Uptime">Uptime</span></dt>
+    <dd><%= relay.get('uptime_hrfull') %></dd>
+    <% } else { %>
+    <dt><span class="tip" title="The time since this bridge was last seen online." data-original-title="Downtime">Downtime</span></dt>
+    <dd><%= relay.get('downtime') %></dd>
+    <dt><span class="tip" title="Timestamp when the bridge was last seen in the consensus." data-original-title="Last seen">Last Seen</span></dt>
+    <dd><%= relay.get('last_seen') %></dd>
+    <% } %>
 
     <dt><span class="tip" title="Flags that the directory authorities assigned to this bridge." data-original-title="Bridge flags">Flags</span></dt>
     <dd><% _.each(relay.get('flags'), function(flag) { %>
@@ -73,20 +80,6 @@
 
     <dt><span class="tip" title="Transport protocols supported by this bridge." data-original-title="Transport protocols">Transport protocols</span></dt>
     <dd><%= relay.get('transports') ? relay.get('transports') : 'none' %></dd>
-
-    </dl>
-    </div>
-    <div class="span4">
-    <h3>Current Status</h3>
-    <dl>
-
-    <% if (relay.get('running') === false) { %>
-    <dt><span class="tip" title="The time since this bridge  was last seen online." data-original-title="Downtime">Downtime</span></dt>
-    <dd><%= relay.get('downtime') %></dd>
-    <% } else {%>
-    <dt><span class="tip" title="The time since this bridge is online." data-original-title="Uptime">Uptime</span></dt>
-    <dd><%= relay.get('uptime_hrfull') %></dd>
-    <% } %>
 
     </dl>
     </div>
