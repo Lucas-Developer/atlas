@@ -156,11 +156,11 @@ define([
                     relay.exit_policy = relay.exit_policy ? relay.exit_policy : null;
                     relay.exit_policy_summary = relay.exit_policy_summary ?  relay.exit_policy_summary : null;
                     relay.exit_policy_v6_summary = relay.exit_policy_v6_summary ?  relay.exit_policy_v6_summary : null;
-                    relay.bandwidthr = relay.bandwidth_rate ? hrBandwidth(relay.bandwidth_rate) : null;
-                    relay.bandwidthb = relay.bandwidth_burst ? hrBandwidth(relay.bandwidth_burst) : null;
-                    relay.obandwidth = relay.observed_bandwidth ? hrBandwidth(relay.observed_bandwidth) : null;
-                    relay.bandwidth = relay.advertised_bandwidth ? relay.advertised_bandwidth : null;
-                    relay.bandwidth_hr = relay.advertised_bandwidth ? hrBandwidth(relay.advertised_bandwidth) : null;
+                    relay.bandwidthr = (typeof relay.bandwidth_rate !== 'undefined') ? hrBandwidth(relay.bandwidth_rate) : null;
+                    relay.bandwidthb = (typeof relay.bandwidth_burst !== 'undefined') ? hrBandwidth(relay.bandwidth_burst) : null;
+                    relay.obandwidth = (typeof relay.observed_bandwidth !== 'undefined') ? hrBandwidth(relay.observed_bandwidth) : null;
+                    relay.bandwidth = (typeof relay.advertised_bandwidth !== 'undefined') ? relay.advertised_bandwidth : null;
+                    relay.bandwidth_hr = (typeof relay.advertised_bandwidth !== 'undefined') ? hrBandwidth(relay.advertised_bandwidth) : null;
                     relay.effective_family = relay.effective_family ? relay.effective_family : null;
                     relay.alleged_family = relay.alleged_family ? relay.alleged_family : null;
                     if (relay.is_bridge) {
