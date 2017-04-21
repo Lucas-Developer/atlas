@@ -251,16 +251,14 @@ var CountryCodes = {
 function hrBandwidth(bw) {
     var bw_k = bw/1000;
     var bw_m = bw_k/1000;
+
     if (bw_m >= 1) {
-        bw = Math.round(bw_m*100)/100 + " MB/s";
-    } else {
-        if (bw_k >= 1) {
-            bw = Math.round(bw_k*100)/100 + " KB/s";
-        } else {
-            bw = bw + " B/s";
-        }
+        return Math.round(bw_m * 100) / 100 + " MB/s";
+    } else if (bw_k >= 1) {
+        return Math.round(bw_k * 100) / 100 + " KB/s";
     }
-    return bw;
+
+    return bw + " B/s";
 }
 
 function checkIfDataIsUpToDate(lastModifiedHeader) {
