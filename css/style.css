@@ -3,41 +3,6 @@
     height: 362px;
 }
 
-.splash {
-    padding-top: 56px;
-    padding-bottom: 72px;
-    position: relative;
-}
-
-
-.splash h1 {
-    text-align: center;
-    font-size: 80px;
-    letter-spacing: -1px;
-    line-height: 1;
-    margin-bottom: 18px;
-}
-
-.splash p {
-    margin-left: 5%;
-    margin-right: 5%;
-    line-height: 36px;
-    font-weight: 300;
-    font-size: 30px;
-}
-
-.splash .learn-more {
-    margin-left: 5%;
-    margin-right: 5%;
-    text-align: center;
-    font-size: 30px;
-    line-height: 36px;
-}
-
-.splash .learn-more {
-
-}
-
 .progress {
     width: 50%;
     margin: 100px auto;
@@ -103,13 +68,6 @@ input {
     }
     .navbar-search input {
         max-width:100%;
-    }
-    .splash h1 {
-        font-size:40px;
-    }
-    .splash p {
-        line-height: 30px;
-        font-size: 24px;
     }
     .span6.hide {
         display: none !important;
