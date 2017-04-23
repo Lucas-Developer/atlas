@@ -14,14 +14,14 @@
     <div class="span6">
     <h3>Configuration</h3>
     <dl>
-      <dt><span class="tip" title="This is the nickname that the Tor bridge operator chose." data-original-title="Nickname">Nickname</span></dt>
+      <dt><span class="tip" title="This is the nickname that the Tor bridge operator chose.">Nickname</span></dt>
       <dd><%= _.escape(relay.get('nickname')) %></dd>
 
-      <dt><span class="tip" title="Ports (addresses are hidden) where the bridge listens for incoming connections from clients and other relays." data-original-title="Onion-routing addresses">OR Addresses</span></dt>
+      <dt><span class="tip" title="Ports (addresses are hidden) where the bridge listens for incoming connections from clients and other relays.">OR Addresses</span></dt>
       <dd><%= relay.get('or_addresses') %></dd>
 
       <dt>
-      <span class="tip" title="Bandwidth that the bridge is willing and able to provide in bytes per second." data-original-title="Advertised bandwidth">Advertised Bandwidth</span>
+      <span class="tip" title="Bandwidth that the bridge is willing and able to provide in bytes per second.">Advertised Bandwidth</span>
       </dt>
       <dd><%= relay.get('bandwidth_hr') ? relay.get('bandwidth_hr') : 'not defined' %></dd>
     </dl>
@@ -36,20 +36,20 @@
     <% } %>
     <dl>
 
-    <dt><span class="tip" title="Hash of 20-byte unique identifier of the bridge." data-original-title="Hashed Fingerprint">Hashed Fingerprint</span></dt>
+    <dt><span class="tip" title="Hash of 20-byte unique identifier of the bridge.">Hashed Fingerprint</span></dt>
     <dd><pre><%= relay.get('fingerprint') %></pre></dd>
 
     <% if (relay.get('running') === true) { %>
-    <dt><span class="tip" title="The time since this bridge is online." data-original-title="Uptime">Uptime</span></dt>
+    <dt><span class="tip" title="The time since this bridge is online.">Uptime</span></dt>
     <dd><%= relay.get('uptime_hrfull') %></dd>
     <% } else { %>
-    <dt><span class="tip" title="The time since this bridge was last seen online." data-original-title="Downtime">Downtime</span></dt>
+    <dt><span class="tip" title="The time since this bridge was last seen online.">Downtime</span></dt>
     <dd><%= relay.get('downtime') %></dd>
-    <dt><span class="tip" title="Timestamp when the bridge was last seen in the consensus." data-original-title="Last seen">Last Seen</span></dt>
+    <dt><span class="tip" title="Timestamp when the bridge was last seen in the consensus.">Last Seen</span></dt>
     <dd><%= relay.get('last_seen') %></dd>
     <% } %>
 
-    <dt><span class="tip" title="Flags that the directory authorities assigned to this bridge." data-original-title="Bridge flags">Flags</span></dt>
+    <dt><span class="tip" title="Flags that the directory authorities assigned to this bridge.">Flags</span></dt>
     <dd><% _.each(relay.get('flags'), function(flag) { %>
     <span class="tip flags" title="<%= flag[2] %>">
         <img class="inline" alt="" src="img/flags/<%= flag[1] %>.png"/>
@@ -58,7 +58,7 @@
     <% }); %>
     </dd>
     
-    <dt><span class="tip" title="" data-original-title="Properties">Properties</span></dt>
+    <dt>Properties</dt>
     <dd>
     <% var propertyCount = 0; %>
     <% if (relay.get('recommended_version') === false) {
@@ -72,13 +72,13 @@
     <%=propertyCount==0?'none':''%>
     </dd>
 
-    <dt><span class="tip" title="Date and time when the bridge was last (re-)started." data-original-title="Last restarted">Last Restarted</span></dt>
+    <dt><span class="tip" title="Date and time when the bridge was last (re-)started.">Last Restarted</span></dt>
     <dd><%= relay.get('last_restarted') %></dd>
 
-    <dt><span class="tip" title="What OS and Tor version the bridge is using" data-original-title="Platform">Platform</span></dt>
+    <dt><span class="tip" title="What OS and Tor version the bridge is using">Platform</span></dt>
     <dd><%= _.escape(relay.get('platform')) %></dd>
 
-    <dt><span class="tip" title="Transport protocols supported by this bridge." data-original-title="Transport protocols">Transport protocols</span></dt>
+    <dt><span class="tip" title="Transport protocols supported by this bridge.">Transport protocols</span></dt>
     <dd><%= relay.get('transports') ? relay.get('transports') : 'none' %></dd>
 
     </dl>
