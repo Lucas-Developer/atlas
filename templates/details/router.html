@@ -108,7 +108,7 @@
     <dd><% if (relay.get('country')) { %><img class="inline country" title="<%= relay.get('countryname') %>" alt="" src="img/cc/<%= relay.get('country') %>.png"/> <%= relay.get('countryname') %><% } else { %>Unknown<% } %></dd>
 
     <dt><span class="tip" title="Autonomous System Number">AS Number</span></dt>
-    <dd><%= relay.get('as_no') ? _.escape(relay.get('as_no')) : "unknown" %></dd>
+    <dd><%= relay.get('as_number') ? _.escape(relay.get('as_number')) : "unknown" %></dd>
 
     <dt><span class="tip" title="Autonomous System Name">AS Name</span></dt>
     <dd><%= relay.get('as_name') ? _.escape(relay.get('as_name')) : "unknown" %></dd>
