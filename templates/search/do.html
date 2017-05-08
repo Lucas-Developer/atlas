@@ -79,9 +79,9 @@
 		<% } %>
             <td>
             <% if (relay.get('running') === false) { %>
-                <img class="tip inline flags" src="img/properties/offline_16x16.png" alt="Currently offline" title="This relay is currently offline."/>
+                <span class="tip circle circle-offline" title="This relay is offline."></span>
             <% } else { %>
-                <img class="tip inline flags" src="img/properties/online_16x16.png" alt="Currently running" title="This relay is currently running."/>
+                <span class="tip circle circle-online" title="This relay is running."></span>
             <% } %>
             </td>
 			<td>

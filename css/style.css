@@ -44,6 +44,25 @@ input {
     width:150px;
 }
 
+.circle {
+    display: inline-block;
+    vertical-align: middle;
+    background: #999999;
+    width: 10px;
+    height: 10px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.circle-online {
+    background: #25d918;
+}
+
+.circle-offline {
+    background: #ff1515;
+}
+
 @media screen and (max-width: 980px) {
     .nav-collapse ul {
         padding-top:20px;

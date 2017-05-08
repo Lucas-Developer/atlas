@@ -1,9 +1,9 @@
 <h1>
     Details for: <%= relay.get('nickname') %>
     <% if (relay.get('running') === false) { %>
-    <img class="tip" src="img/properties/offline_16x16.png" alt="Offline" title="This bridge is offline."/>
+    <span class="tip circle circle-offline" title="This bridge is offline."></span>
     <% } else { %>
-    <img class="tip" src="img/properties/online_16x16.png" alt="Running" title="This bridge is running."/>
+    <span class="tip circle circle-online" title="This bridge is running."></span>
     <% } %>
 </h1>
 
