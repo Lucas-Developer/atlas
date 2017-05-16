@@ -20,7 +20,6 @@ define([
         initialize: function() {
            this.model = new relayModel;
            this.graph = new graphModel;
-           //console.log(this.graph);
         },
         plot: function(g, data, labels, legendPos, colors, tickFormat,
                        tooltipFormat) {
@@ -173,7 +172,6 @@ define([
         },
         render: function() {
             var data = {relay: this.model};
-            //console.log(data);
             var compiledTemplate;
             if (!this.model)
                 compiledTemplate = _.template(errorDetailsTemplate, data);

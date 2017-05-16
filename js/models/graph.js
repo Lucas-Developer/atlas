@@ -12,8 +12,6 @@ define([
             var first = history[period].first.split(' ');
             var date = first[0].split('-');
             var time = first[1].split(':');
-            //console.log(date);
-            //console.log(time);
             first = new Date(date[0], date[1]-1, date[2],
                             time[0], time[1], time[2]);
             var y = first.getTime();

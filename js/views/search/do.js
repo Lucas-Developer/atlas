@@ -22,10 +22,6 @@ define([
                 var iMax = document.getElementById(data.idb).value;
 
                 if ( iMin == "" && iMax == "") {
-                    //console.log("True!")
-                    //console.log("RAW: "+rawdata);
-                    //console.log("iMin: "+iMin+" iMax: "+iMax);
-                    //console.log("datafilter:"+datafilter);
                     return true;
                 } else {
                     var rawdata = $(data.aData[data.i]).attr('data-filter');
@@ -33,28 +29,12 @@ define([
                 }
 
                 if ( iMin == "" && datafilter < iMax*1) {
-                    //console.log("True!")
-                    //console.log("RAW: "+rawdata);
-                    //console.log("iMin: "+iMin+" iMax: "+iMax);
-                    //console.log("datafilter:"+datafilter);
                     return true;
                 } else if (iMin*1 <= datafilter && "" == iMax) {
-                    //console.log("True!")
-                    //console.log("RAW: "+rawdata);
-                    //console.log("iMin: "+iMin+" iMax: "+iMax);
-                    //console.log("datafilter:"+datafilter);
                     return true;
                 } else if (iMin*1 <= datafilter && datafilter <= iMax*1) {
-                    //console.log("True!")
-                    //console.log("RAW: "+rawdata);
-                    //console.log("iMin: "+iMin+" iMax: "+iMax);
-                    //console.log("datafilter:"+datafilter);
                     return true;
                 }
-                //console.log("FALSE!")
-                //console.log("RAW: "+rawdata);
-                //console.log("iMin: "+iMin+" iMax: "+iMax);
-                //console.log("datafilter:"+datafilter);
 
                 return false;
 
@@ -62,12 +42,7 @@ define([
             var imagefilter = function(data) {
                 var name = document.getElementById(data.id).value;
                 var result = false;
-                //console.log(name);
                 if ( name == "" ) {
-                    //console.log("True!")
-                    //console.log("RAW: "+rawdata);
-                    //console.log("iMin: "+iMin+" iMax: "+iMax);
-                    //console.log("datafilter:"+datafilter);
                     return true;
                 } else {
                     var elements = $(data.aData[data.i]);
@@ -75,12 +50,9 @@ define([
                 _.each(elements, function(el) {
                     var datafilter = $(el).attr('title');
                     if (datafilter != undefined) {
-                        //console.log("Datafilter: "+datafilter);
                         var fRegex = new RegExp(datafilter);
 
                         if (name.match(fRegex)) {
-                            console.log("fRegex: "+fRegex);
-                            console.log("name: "+name);
                             result |= true;
                         } else {
                             result |= false;
@@ -88,8 +60,7 @@ define([
                     }
                 });
 
-                if (result == 1) { console.log('TRUE');return true; }
-                else { console.log("FALSE");return false; }
+                return (result == 1);
             }
 
             $.fn.dataTableExt.afnFiltering.push(
@@ -112,7 +83,6 @@ define([
                         idb: "uptime_to",
                         i: 2,
                         transform: function(data) {
-                            console.log(data);
                             return Math.floor(data/1000/3600/24);
                             }
                         });
@@ -129,9 +99,7 @@ define([
                         i: 5
                         });
 
-                    //console.log(result);
-                    if (result == 1) { return true; }
-                    else { return false; }
+                    return (result == 1);
                 }
             );
 

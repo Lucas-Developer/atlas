@@ -13,8 +13,6 @@ $.fn.dataTableExt.afnFiltering.push(
 	function( oSettings, aData, iDataIndex ) {
 		var iMin = document.getElementById('bw_from').value * 1;
 		var iMax = document.getElementById('bw_from').value * 1;
-        console.log("iMin: "+iMin+" iMax: "+iMax);
-        console.log(aData);
 		var iVersion = aData[3] == "-" ? 0 : aData[3]*1;
 
 		if ( iMin == "" && iMax == "" )

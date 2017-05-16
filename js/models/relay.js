@@ -75,10 +75,6 @@ define([
             secs = secs % 60;
             mins = mins % 60;
             hours = hours % 24;
-            // console.log("secs: "+secs);
-            // console.log("mins: "+mins);
-            // console.log("hours: "+hours);
-            // console.log("days: "+days);
             var hr_date = "";
             var hr_date_full = "";
             var hr = 0;
@@ -135,7 +131,6 @@ define([
             var success = options.success;
             var error = options.error;
             var model = this;
-            console.log("doing query..");
             var xhr = $.getJSON(this.baseurl+'/details?lookup='+this.fingerprint, function(data) {
                 checkIfDataIsUpToDate(xhr.getResponseHeader("Last-Modified"));
                 var relay = null;
@@ -147,7 +142,6 @@ define([
                     relay.is_bridge = true;
                 }
                 if (relay) {
-                    //console.log(data);
                     relay.contact = relay.contact ? relay.contact : 'undefined';
                     relay.platform = relay.platform ? relay.platform : null;
                     relay.recommended_version = (typeof relay.recommended_version !== 'undefined') ? relay.recommended_version : null;
@@ -180,7 +174,6 @@ define([
                     relay.uptime = relay.last_restarted ? model.parsedate(relay.last_restarted) : null;
                     relay.uptime_hr = relay.last_restarted ? relay.uptime.hr : null;
                     relay.uptime_hrfull = relay.last_restarted ? relay.uptime.hrfull : null;
-                    //console.log(relay.uptime.hrfull);
                     relay.uptime = relay.last_restarted ? relay.uptime.millisecs : null;
                     relay.last_restarted = relay.last_restarted ? relay.last_restarted : null;
                     relay.last_seen = relay.last_seen ? relay.last_seen : null;
@@ -197,7 +190,9 @@ define([
                 } else {
                     error(model)
                 }
-            }).error(function() {console.log("error...");error();});
+            }).error(function() {
+                error();
+            });
         }
 
 	});

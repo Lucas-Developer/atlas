@@ -156,7 +156,6 @@ define([
     $("#nav-search").submit(function(e){
         var query = _.escape($(this).children("input.search-query").val());
         query = query.trim();
-        console.log(query);
         $("#suggestion").hide();
         document.location = "#search/"+query;
         return false;
