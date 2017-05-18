@@ -108,7 +108,11 @@
             </td>
             <td>
             <% if (relay.get('recommended_version') === false) { %>
-                <img class="tip inline flags" src="img/properties/not_recommended_16x16.png" alt="Not recommended" title="Not recommended<br />This relay is running a software version that is not recommended by the directory authorities."/>
+                <% if (relay.get('is_bridge')) { %>
+                <img class="tip" src="img/properties/not_recommended_16x16.png" alt="Outdated Tor version" title="Outdated Tor version<br />This bridge is running a Tor version that is not recommended by the directory authorities and may contain known issues."/>
+                <% } else { %>
+                <img class="tip" src="img/properties/not_recommended_16x16.png" alt="Outdated Tor version" title="Outdated Tor version<br />This relay is running a Tor version that is not recommended by the directory authorities and may contain known issues."/>
+                <% } %>
             <% } %>
             </td>
 			<td><%= relay.get('or_port') %></td>
