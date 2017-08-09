@@ -3,9 +3,8 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/relay',
-  'jssha'
-], function($, _, Backbone, relayModel, jsSHA){
+  'models/relay'
+], function($, _, Backbone, relayModel){
 	var resultsCollection = Backbone.Collection.extend({
 		model: relayModel,
 		baseurl: 'https://onionoo.torproject.org/summary?search=',
@@ -25,12 +24,12 @@ define([
                 }
                 _.each(response.relays, function(relay, resultsC) {
                     crelay = new relayModel;
-                    crelay.fingerprint = new jsSHA(relay.f, "HEX").getHash("SHA-1", "HEX").toUpperCase();
+                    crelay.fingerprint = relay.f;
                     relays.push(crelay);
                 });
                 _.each(response.bridges, function(relay, resultsC) {
                     crelay = new relayModel;
-                    crelay.fingerprint = new jsSHA(relay.h, "HEX").getHash("SHA-1", "HEX").toUpperCase();
+                    crelay.fingerprint = relay.h;
                     relays.push(crelay);
                 });
                 if (relays.length == 0) {
